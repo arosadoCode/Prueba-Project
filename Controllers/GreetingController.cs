@@ -1,4 +1,5 @@
-﻿using Prueba_Project.Models;
+﻿using Microsoft.Web.Infrastructure;
+using Prueba_Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,10 +12,11 @@ namespace Prueba_Project.Controllers
     public class GreetingController : Controller
     {
         // GET: Greeting
-        public ActionResult Index()
+        public ActionResult Index(string name)
         {
             var model = new GreetingsViewModel();
             model.Message = ConfigurationManager.AppSettings["message"];
+            model.name = name ?? "no name";
             model.prueba = "hello";
             return View(model);
         }

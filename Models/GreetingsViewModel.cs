@@ -10,5 +10,7 @@ namespace Prueba_Project.Models
         public string Message { get; set; }
         public string prueba { get; set; }
 
+        public string name { get; set; }
+
     }
 }
