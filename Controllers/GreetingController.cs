@@ -1,5 +1,5 @@
 ﻿using Microsoft.Web.Infrastructure;
-using Prueba_Project.Models;
+using Prueba_Project.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

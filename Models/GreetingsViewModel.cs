@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Prueba_Project.Models
+namespace Prueba_Project.Modelo
 {
     public class GreetingsViewModel
     {
