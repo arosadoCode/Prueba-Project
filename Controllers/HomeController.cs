@@ -14,8 +14,6 @@ namespace Prueba_Project.Controllers
         public HomeController(IRestaurantData db) 
         {
             this.db = db;
-            //db = new InMemoryRestaurantData();
-            //test
         }
 
         public ActionResult Index()

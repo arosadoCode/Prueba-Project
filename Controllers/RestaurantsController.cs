@@ -1,4 +1,5 @@
-﻿using Prueba_Project.Modelo.Services;
+﻿using Prueba_Project.Modelo;
+using Prueba_Project.Modelo.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,6 @@ namespace Prueba_Project.Controllers
             this.db = db;
         }
 
-
-
-        // GET: Restaurants
         public ActionResult Index()
         {
             var model = db.GetAll();
@@ -35,8 +33,45 @@ namespace Prueba_Project.Controllers
                 return View("NotFound");
             }
             return View(model);
-
+        }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Restaurant restaurant)
+        {
+            if(ModelState.IsValid)
+            {
+                db.Add(restaurant);
+                return RedirectToAction("Details", new { id = restaurant.ID});
+            }
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var model = db.Get(id);
+            if (model == null)
+            {
+                return View("NotFound");
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Restaurant restaurant)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Update(restaurant);
+                return RedirectToAction("Details", new { id = restaurant.ID});
+            }
+            return View(restaurant);
+        }
     }
 }

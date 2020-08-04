@@ -1,14 +1,14 @@
-﻿@{
+﻿@model Prueba_Project.Modelo.Restaurant
+
+@{
     ViewBag.Title = "hello you";
 }
 
-    <div class="alert">
-        <div class="jumbotron">
-            <select class="form-control" id="ddlName">
-                <option></option>
-            </select>
-        </div>
+<div class="alert">
+    <div class="jumbotron">
+        @Html.EnumDropDownListFor(model => model.Cuisine, new { htmlAttributes = new { @class = "form-control" } })
     </div>
+</div>
 
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>

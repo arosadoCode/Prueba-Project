@@ -20,6 +20,23 @@ namespace Prueba_Project.Modelo.Services
 
         }
 
+        public void Add(Restaurant restaurant)
+        {
+            restaurants.Add(restaurant);
+            restaurant.ID = restaurants.Max(r => r.ID) + 1;
+        }
+
+        public void Update(Restaurant restaurant)
+        {
+            var existing = Get(restaurant.ID);
+            if (existing != null)
+            {
+                existing.Name = restaurant.Name;
+                existing.Cuisine = restaurant.Cuisine;
+            }
+        }
+
+
         public Restaurant Get(int id)
         {
             return restaurants.FirstOrDefault(r => r.ID == id);
