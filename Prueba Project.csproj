@@ -167,6 +167,7 @@
     <Compile Include="Modelo\Restaurant.cs" />
     <Compile Include="Modelo\Services\InMemoryRestaurantData.cs" />
     <Compile Include="Modelo\Services\IRestaurantData.cs" />
+    <Compile Include="Modelo\Services\ProjectoPruebaDbContext.cs" />
     <Compile Include="Models\GreetingsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
