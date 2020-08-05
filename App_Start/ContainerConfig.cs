@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;  
 using System.Web.Services.Protocols;
-
+ 
 namespace Prueba_Project
 {
     public class ContainerConfig
@@ -21,9 +21,10 @@ namespace Prueba_Project
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            builder.RegisterType<InMemoryRestaurantData>()
+            builder.RegisterType<SqlRestaurantData>()
                     .As<IRestaurantData>()
-                    .SingleInstance();
+                    .InstancePerRequest();
+            builder.RegisterType<ProjectoPruebaDbContext>().InstancePerRequest();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
